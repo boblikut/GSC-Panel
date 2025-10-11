@@ -1,0 +1,18 @@
+services:
+  app:
+    # image: ${IMAGE_NAME}:${IMAGE_TAG}
+    build: .
+    ports:
+      - 80:80
+      - 8080:8080
+    volumes:
+      - gsc-db-volume:/var/www/html/db
+  # sut:
+  #   image: alpine:3.21
+  #   depends_on:
+  #     - app
+  #   command: /tmp/run_tests.sh
+  #   volumes:
+  #     - "./run_tests.sh:/tmp/run_tests.sh:ro"
+volumes:
+  gsc-db-volume:
