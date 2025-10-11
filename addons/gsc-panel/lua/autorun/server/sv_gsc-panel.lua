@@ -1,6 +1,6 @@
 require("gwsockets")
 
-local token = "2c8aa566e251602858e26424ba6b1c"
+local token = "YOUR TOKEN"
 local ws_addres = "ws://localhost:8080"
 
 local socket = GWSockets.createWebSocket(ws_addres)
@@ -210,3 +210,4 @@ hook.Add("PlayerInitialSpawn", "gsc-players-update", gsc.updatePlayers)
 hook.Add( "PlayerDisconnected", "gsc-players-update", function()
 	timer.Create("GSC players update", 0.1, 1, gsc.updatePlayers)
 end)
+
