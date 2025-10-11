@@ -15,7 +15,7 @@ Immediately after logging into the account, change your password. To do this, go
 
 To create accounts for your admins, you can click on Create Account in the users tab.
 
-To edit roles and create new ones, go to the Roles tab and do it. Also you can create own player's commands. Check `sv_gsc-panel_commands.lua` for examples. To these commands appear at web-app press `Update rigths` at Roles tab
+To edit roles and create new ones, go to the Roles tab and do it. Also you can create own player's commands. Check `sv_gsc-panel_commands.lua` for examples. To these commands appear at web-app press `Update rigths` at Roles tab. Also exists little issue that you need to relogin at your account to get new rights
 
 To verify your Gmod server, you need to generate a token in the Gmod Token tab and insert it at the beginning of the `sv_gsc-panel.lua` file, replacing `YOUR TOKEN`.
 
