@@ -22,11 +22,11 @@ To verify your Gmod server, you need to generate a token in the Gmod Token tab a
 Working directly with players, changing maps, gamemodes, etc., is generally elementary and requires no explanation.
 
 ## Installation
-0. Dowload `Docker`
-1. Dowload docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
+0. Download `Docker`
+1. Download docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
 2. Transfer folder from `addons` to your `addons` folder on your gmod server
 3. Open `sv_gsc-panel.lua` and replace `YOUR TOKEN` on your token and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN]:[PORT](8080 by default if you don't change the launch command)`)
-4. Dowload [GWSockets](https://github.com/FredyH/GWSockets)(put .dll from realeses that you need to lua/bin)
+4. Download [GWSockets](https://github.com/FredyH/GWSockets)(put .dll from realeses that you need to lua/bin)
 
 ## Launch
 1. Create and launch docker container thx this command: `docker run --name gsc-panel -d -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
