@@ -15,17 +15,17 @@ Immediately after logging into the account, change your password. To do this, go
 
 To create accounts for your admins, you can click on Create Account in the users tab.
 
-To edit roles and create new ones, go to the Roles tab and do it.
+To edit roles and create new ones, go to the Roles tab and do it. Also you can create own player's commands. Check `sv_gsc-panel_commands.lua` for examples. To these commands appear at web-app press `Update rigths` at Roles tab
 
 To verify your Gmod server, you need to generate a token in the Gmod Token tab and insert it at the beginning of the `sv_gsc-panel.lua` file, replacing `YOUR TOKEN`.
 
 Working directly with players, changing maps, gamemodes, etc., is generally elementary and requires no explanation.
 
 ## Installation
-A rather complex step for beginners, but if you have basic server administration skills, it won't be difficult. I won't provide specific commands, as they may differ depending on the Linux distribution and corresponding package managers. The instructions described here should generally be common to all OSes.
-
-0. Dowload Docker
+0. Dowload `Docker`
 1. Dowload docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
+2. Transfer folder from `addons` to your `addons` folder on your gmod server
+3. Open `sv_gsc-panel.lua` and replace `YOUR TOKEN` on your token and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN]:PORT(8080 by default if you don't change the launch command)`)
 
 ## Launch
 1. Create and launch docker container thx this command: `docker run --name gsc-panel -d -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
@@ -37,15 +37,14 @@ If you installed the addon correctly and the server is running, you will immedia
 
 ## Screenshots
 
-<img width="1917" height="885" alt="image" src="https://github.com/user-attachments/assets/bd035534-b5eb-40ac-af45-e26f4f4c6d6c" />
+<img width="1918" height="897" alt="image" src="https://github.com/user-attachments/assets/b59c72a0-2717-4c30-b9bb-29dcebd8f1dd" />
 
-<img width="1887" height="782" alt="image" src="https://github.com/user-attachments/assets/02db8c15-9e9c-40d6-b04d-7ca7a14ac59a" />
+<img width="1886" height="896" alt="image" src="https://github.com/user-attachments/assets/19c949a7-dedb-4141-b05c-a0a73b19f433" />
 
-<img width="1892" height="886" alt="image" src="https://github.com/user-attachments/assets/f8661812-3ed6-4e51-a846-eef425276ce7" />
+<img width="1892" height="885" alt="image" src="https://github.com/user-attachments/assets/865f3f3c-317b-467a-887c-bed00ca274cc" />
 
-<img width="1886" height="877" alt="image" src="https://github.com/user-attachments/assets/d5c1ad91-3500-4ca8-b3bf-ae138fd8f430" />
+<img width="1883" height="887" alt="image" src="https://github.com/user-attachments/assets/09d7e601-b5c6-417e-816b-218f5063a488" />
 
-<img width="1887" height="858" alt="image" src="https://github.com/user-attachments/assets/193493ef-2dd1-4adc-98f8-9978a2750415" />
 
 ## Afterword
 If you have any problems with the project, suggestions, wishes, etc., then write to me on Discord (`boblikut`). I can also create custom command packs specifically for your server, but if you really like the project, I would first use it in its vanilla version to understand if you really need it and if there are any critical bugs in the project.
