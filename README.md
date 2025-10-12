@@ -25,7 +25,7 @@ Working directly with players, changing maps, gamemodes, etc., is generally elem
 0. Download `Docker`
 1. Download docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
 2. Transfer folder from `addons` to your `addons` folder on your gmod server
-3. Open `sv_gsc-panel.lua` and replace `YOUR TOKEN` on your token and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN or IP]:[PORT](8080 by default if you don't change the launch command)`)
+3. Open `sv_gsc-panel.lua` and replace `YOUR TOKEN` on your token and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN or IP]:[PORT](8080 by default)`)
 4. Download [GWSockets](https://github.com/FredyH/GWSockets)(put .dll from realeses that you need to lua/bin)
 
 ## Launch
