@@ -314,16 +314,16 @@
 				<?php
 					//first row processing
 					echo "<tr>";
-					echo '<td style = "width: 250px;">'.$first_row['login'].'</td><td style = "width: 250px;">'.$first_row['role'].'</td>';
+					echo '<td style = "width: 250px;">'.htmlspecialchars($first_row['login']).'</td><td style = "width: 250px;">'.htmlspecialchars($first_row['role']).'</td>';
 					echo '<td><form style="margin: auto; margin-left: 15%;" action="admin" method="POST" data-shouldAsk="user"><input type = "hidden" name="deleting_acount_id" value='.$first_row['id'].'><input type="submit" class="submit" value="❌"></form></td>';
-					echo '<td><button onclick = "removeHiddenLogin(); addEditingLogin(\''.$first_row['login'].'\', '.$first_row['id'].', \''.$first_row['role'].'\'); OpenAccountCreatingPanel();">🔧</button></td>';
+					echo '<td><button onclick = "removeHiddenLogin(); addEditingLogin(\''.htmlspecialchars($first_row['login']).'\', '.$first_row['id'].', \''.$first_row['role'].'\'); OpenAccountCreatingPanel();">🔧</button></td>';
 					echo "</tr>";
 
 					while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 						echo "<tr>";
-						echo '<td style = "width: 250px;">'.$row['login'].'</td><td style = "width: 250px;">'.$row['role'].'</td>';
+						echo '<td style = "width: 250px;">'.htmlspecialchars($row['login']).'</td><td style = "width: 250px;">'.htmlspecialchars($row['role']).'</td>';
 						echo '<td><form style="margin: auto; margin-left: 15%;" action="admin" method="POST" data-shouldAsk="user"><input type = "hidden" name="deleting_acount_id" value='.$row['id'].'><input type="submit" class="submit" value="❌"></form></td>';
-						echo '<td><button onclick = "removeHiddenLogin(); addEditingLogin(\''.$row['login'].'\', '.$row['id'].', \''.$row['role'].'\'); OpenAccountCreatingPanel();">🔧</button></td>';
+						echo '<td><button onclick = "removeHiddenLogin(); addEditingLogin(\''.htmlspecialchars($row['login']).'\', '.$row['id'].', \''.htmlspecialchars($row['role']).'\'); OpenAccountCreatingPanel();">🔧</button></td>';
 						echo "</tr>";
 					}
 				?>
@@ -344,7 +344,7 @@
 							<?php
 								$result = $db->query("SELECT * FROM roles");
 								while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-									echo '<option value="'.$row['name'].'">'.$row['name'].'</option>';
+									echo '<option value="'.htmlspecialchars($row['name']).'">'.htmlspecialchars($row['name']).'</option>';
 								}
 							?>
 						</select><br><br>
@@ -369,16 +369,16 @@
 				<?php
 					//first row processing
 					echo "<tr>";
-					echo '<td style = "width: 250px;">'.$first_row['name'].'</td>';
+					echo '<td style = "width: 250px;">'.htmlspecialchars($first_row['name']).'</td>';
 					echo '<td><form style="margin: auto; margin-left: 15%;" action="admin" method="POST" data-shouldAsk="role"><input type = "hidden" class="submit" name="deleting_role_id" value='.$first_row['id'].'><input type="submit" value="❌"></form></td>';
-					echo '<td><button onclick = "removeHiddenRole(); addEditingRole(\''.$first_row['name'].'\', '.$first_row['id'].', \''.$first_row['permissions'].'\'); OpenRoleCreatingPanel();">🔧</button></td>';
+					echo '<td><button onclick = "removeHiddenRole(); addEditingRole(\''.htmlspecialchars($first_row['name']).'\', '.$first_row['id'].', \''.htmlspecialchars($first_row['permissions']).'\'); OpenRoleCreatingPanel();">🔧</button></td>';
 					echo "</tr>";
 
 					while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 						echo "<tr>";
-						echo '<td style = "width: 250px;">'.$row['name'].'</td>';
+						echo '<td style = "width: 250px;">'.htmlspecialchars($row['name']).'</td>';
 						echo '<td><form style="margin: auto; margin-left: 15%;" action="admin" method="POST" data-shouldAsk="role"><input type = "hidden" class="submit" name="deleting_role_id" value='.$row['id'].'><input type="submit" value="❌"></form></td>';
-						echo '<td><button onclick = "removeHiddenRole(); addEditingRole(\''.$row['name'].'\', '.$row['id'].', \''.$row['permissions'].'\'); OpenRoleCreatingPanel();">🔧</button></td>';
+						echo '<td><button onclick = "removeHiddenRole(); addEditingRole(\''.htmlspecialchars($row['name']).'\', '.$row['id'].', \''.htmlspecialchars($row['permissions']).'\'); OpenRoleCreatingPanel();">🔧</button></td>';
 						echo "</tr>";
 					}
 				?>
@@ -398,8 +398,8 @@
 						<?php
 							$result = $db->query("SELECT * FROM permissions");
 							while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-								echo '<input type="checkbox" name="fpermissions[]" value="'.$row['name'].'" id="perm_'.$row['name'].'">';
-								echo '<label>'.$row['description'].'</label><br>';
+								echo '<input type="checkbox" name="fpermissions[]" value="'.htmlspecialchars($row['name']).'" id="perm_'.htmlspecialchars($row['name']).'">';
+								echo '<label>'.htmlspecialchars($row['description']).'</label><br>';
 							}
 						?>
 						<input type = 'submit' value = 'Submit' style="float: right;">
