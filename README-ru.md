@@ -23,7 +23,7 @@
 0. Устоновите 'Docker'
 1. Устоновите докер-образ, с помощью этой команды: `docker pull ghcr.io/boblikut/gsc-panel:latest`
 2. Переместите папкку `addons` в вашу папку `addons` на вашем Garry's Mod сервере
-3. Откройте `sv_gsc-panel.lua` и замените `YOUR TOKEN` на ваш токен и замените `ws://localhost:8080` на актуальный адресс вашего севрера Web Sockets(`ws://[ВАШ ДОМЕН]:[ПОРТ](8080 by default if you don't change the launch command)`)
+3. Откройте `sv_gsc-panel.lua` и замените `YOUR TOKEN` на ваш токен и замените `ws://localhost:8080` на актуальный адресс вашего севрера Web Sockets(`ws://[ВАШ ДОМЕН или АЙПИ]:[ПОРТ](8080 по умолчанию)`)
 4. Скачать [GWSockets](https://github.com/FredyH/GWSockets)(просто положите нужный вам .dll из релизов в lua/bin)
 
 ## Запуск
@@ -60,6 +60,7 @@
 
 ## Сервера, которые уже используют GSC-Panel
 * Пока никто) Станьте первыми!
+
 
 
 
