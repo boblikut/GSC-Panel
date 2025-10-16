@@ -31,6 +31,10 @@ Working directly with players, changing maps, gamemodes, etc., is generally elem
 ## Launch
 1. Create and launch docker container thx this command: `docker run --name gsc-panel -d -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
 2. To restart container type: `docker restart gsc-panel`
+3. To stop created container: `docker stop gsc-panel`
+4. To start created container: `docker start gsc-panel`
+
+*In linux write `sudo` before `docker`*
 
 The addon includes systems that make it independent of the launch order, so the order is not important.
 
@@ -55,7 +59,7 @@ Just so you know, I'm all for using the project and you can use it absolutely fr
 ## Acknowledgments
 
 * [TrafeX](https://github.com/TrafeX) - cool [docker image](https://github.com/TrafeX/docker-php-nginx) for multiplatform PHP apps
-* [Unknown Develiper](https://github.com/unknown-gd) - help with Docker
+* [Unknown Developer](https://github.com/unknown-gd) - help with Docker
 * [Winkarst](https://github.com/Winkarst-cpu) - testing
 
 ## Servers Already Using GSC-Panel
