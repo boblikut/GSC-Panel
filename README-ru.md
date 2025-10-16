@@ -21,14 +21,19 @@
 Работа непосредственно с игроками, сменой карты, режима и т.д. в принципе элементарно понятна и не требует объяснений
 ## Установка
 0. Устоновите 'Docker'
-1. Устоновите докер-образ, с помощью этой команды: `docker pull ghcr.io/boblikut/gsc-panel:latest`
-2. Переместите папкку `addons` в вашу папку `addons` на вашем Garry's Mod сервере
-3. Откройте `sv_gsc-panel.lua` и замените `YOUR TOKEN` на ваш токен и замените `ws://localhost:8080` на актуальный адресс вашего севрера Web Sockets(`ws://[ВАШ ДОМЕН или АЙПИ]:[ПОРТ](8080 по умолчанию)`)
-4. Скачать [GWSockets](https://github.com/FredyH/GWSockets)(просто положите нужный вам .dll из релизов в lua/bin)
+1. Запустите 'Docker'
+2. Устоновите докер-образ, с помощью этой команды: `docker pull ghcr.io/boblikut/gsc-panel:latest`
+3. Переместите папкку `addons` в вашу папку `addons` на вашем Garry's Mod сервере
+4. Откройте `sv_gsc-panel.lua` и замените `YOUR TOKEN` на ваш токен и замените `ws://localhost:8080` на актуальный адресс вашего севрера Web Sockets(`ws://[ВАШ ДОМЕН или АЙПИ]:[ПОРТ](8080 по умолчанию)`)
+5. Скачать [GWSockets](https://github.com/FredyH/GWSockets)(просто положите нужный вам .dll из релизов в lua/bin)
 
 ## Запуск
 1. Создайте и запустите докер-контейнер, с помощью этой команды: `docker run --name gsc-panel -d -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
 2. Чтобы перезапустить ваш докер-контейнер напишите: `docker restart gsc-panel`
+3. Чтобы остановить ваш докер-контейнер напишите: `docker stop gsc-panel`
+4. Чтобы запустить ваш докер-контейнер напишите: `docker start gsc-panel`
+
+*В Linux добавляйте к `docker` `sudo`*
 
 В аддоне присутствуют системы, которые делают систему независимую от порядка запуска, так что порядок запуска неважен
 
@@ -55,11 +60,12 @@
 ## Acknowledgments
 
 * [TrafeX](https://github.com/TrafeX) - крутой [докер-образ](https://github.com/TrafeX/docker-php-nginx) для мультиплатформенных PHP приложений
-* [Unknown Develiper](https://github.com/unknown-gd) - помощь с Докером
+* [Unknown Developer](https://github.com/unknown-gd) - помощь с Докером
 * [Winkarst](https://github.com/Winkarst-cpu) - тестирование
 
 ## Сервера, которые уже используют GSC-Panel
 * Пока никто) Станьте первыми!
+
 
 
 
