@@ -41,24 +41,32 @@ class Panel implements MessageComponentInterface {
 		$result = $this->db->query('SELECT * FROM roles WHERE name=\''.$user['role'].'\'');
 		$role = $result->fetchArray(SQLITE3_ASSOC);
 		$permissions = explode('|', $role['permissions']);
-		if ($arr['msg']['type'] == 'maps_list_request' && !in_array('map', $permissions)){
-			echo 'Map fail';
-			return;
-		}
-		if ($arr['msg']['type'] == 'gamemodes_list_request' && !in_array('gamemode', $permissions)){
-			echo 'GM fail';
-			return;
-		}
 		if ($arr['msg']['type'] == 'game_activity' && !in_array($arr['msg']['data']['command'], $permissions)){
-			echo 'Kick fail';
+			echo 'Command fail';
 			return;
 		}
 		//sending msg
 		msg:
-		$msg = json_encode($arr['msg']);
-		foreach ($this->clients as $client) {
-			if ($from !== $client) {
-				$client->send($msg);
+		if (isset($arr['msg'])) {
+			$msg = json_encode($arr['msg']);
+			foreach ($this->clients as $client) {
+				if ($from !== $client) {
+					$client->send($msg);
+				}
+			}
+		}
+		elseif (isset($arr['rights'])) {
+			$this->db->exec('DELETE FROM permissions WHERE id > 1');
+			foreach($arr['rights'] as $v){
+				$statement = $this->db->prepare('INSERT INTO permissions (name, description) values(?, ?)');
+				$statement->bindValue(1, $v['name'], SQLITE3_TEXT);
+				$statement->bindValue(2, $v['description'], SQLITE3_TEXT);
+				$statement->execute();
+			}
+			foreach ($this->clients as $client) {
+				if ($from !== $client) {
+					$client->send('{"rights_updated": 1}');
+				}
 			}
 		}
     }

@@ -1,23 +1,20 @@
-<?php 
+<?php
+	function start_notice(){
+		if ($_SESSION["message"]){
+			echo '<script>notice(\''.$_SESSION["message"].'\', 2000, document.getElementById("notification"))</script>';
+			unset($_SESSION["message"]);
+		}
+	}
+ 
 	session_start();
 	if (!$_SESSION["id"]){
 		ob_start();
 		include('login.php');
 		$content = ob_get_clean();
 		echo $content;
+		start_notice();
 		die;
 	}
-?>
-<div class = "topnav">
-	<a href="/">Home</a>
-	<?php
-		if (in_array('owner', $_SESSION['permissions'])){
-	?>
-	<a href="admin">Admin Panel</a>
-	<?php }?>
-	<a href="leave" style="float:right">Log out</a>
-</div>
-<?php
 	
 	$url = $_SERVER['REQUEST_URI'];
 	
@@ -26,6 +23,7 @@
 		include('main.php');
 		$content = ob_get_clean();
 		echo $content;
+		start_notice();
 		die;
 	}
 	
@@ -43,5 +41,5 @@
 	include($path);
 	$content = ob_get_clean();
 	echo $content;
-	
+	start_notice();
 ?>
