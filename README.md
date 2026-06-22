@@ -1,4 +1,4 @@
-# GSC - Panel (Beta)
+# GSC - Panel
 ## Intro
 This is an administration panel for Garry's Mod servers. Your administrators will be able to perform their duties, even without the ability to log into the Garry's Mod server, via a convenient web interface.
 
@@ -11,51 +11,51 @@ First of all, you need to log into the admin account somehow. It's simple to do.
 Login: `owner`
 Password: `1234`
 
-Immediately after logging into the account, change your password. To do this, go to the Admin Panel, users, and click Edit next to the owner nickname. You can also change the login there.
+Immediately after logging into the account, change your password. To do this, go to the Admin Panel, users, and click on pencil near of "owner" login. You can also change the login there.
 
 To create accounts for your admins, you can click on Create Account in the users tab.
 
-To edit roles and create new ones, go to the Roles tab and do it. Also you can create own player's commands. Check `sv_gsc-panel_commands.lua` for examples. To these commands appear at web-app press `Update rigths` at Roles tab. Also exists little issue that you need to relogin at your account to get new rights
+To edit roles and create new ones, go to the Roles tab and do it. Also you can create own player's commands. Check `gsc/plugins/commands_example.lua` for examples. Don't remember sync roles rights with player commands at Admin Panel -> Users -> Sync Rights
 
-To verify your Gmod server, you need to generate a token in the Gmod Token tab and insert it at the beginning of the `sv_gsc-panel.lua` file, replacing `YOUR TOKEN`.
-
-Working directly with players, changing maps, gamemodes, etc., is generally elementary and requires no explanation.
+Also you can make that admins could check custom info about players. To do it check `gsc/plugins/info_example.lua` with examples.
 
 ## Installation
 0. Download `Docker`
 1. Launch `Docker`
 2. Download docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
-3. Transfer folder from `addons` to your `addons` folder on your gmod server
-4. Open `sv_gsc-panel.lua` and replace `YOUR TOKEN` on your token and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN or IP]:[PORT](8080 by default)`)
-5. Download [GWSockets](https://github.com/FredyH/GWSockets)(put .dll from realeses that you need to lua/bin)
+3. Transfer folder `gsc` from `addons` to your `addons` folder on your gmod server
+4. Open `gsc/sv_gsc-panel.lua` and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN or IP]:[PORT](8080 by default)`)
+5. Download [GWSockets](https://github.com/FredyH/GWSockets) and put .dll from realeses that you need to `lua/bin`
+6. Generate a token at Admin -> Token and put it at `data/gsc/gsc-token.txt` of your gmod server.
 
 ## Launch
-1. Create and launch docker container thx this command: `docker run --name gsc-panel -d -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
+1. Create and launch docker container thx this command: `docker run --name gsc-panel -d --restart always -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
 2. To restart container type: `docker restart gsc-panel`
 3. To stop created container: `docker stop gsc-panel`
 4. To start created container: `docker start gsc-panel`
 
 *In linux write `sudo` before `docker`*
 
-The addon includes systems that make it independent of the launch order, so the order is not important.
-
 If you installed the addon correctly and the server is running, you will immediately see up-to-date statistics, players, etc.
 
 ## Screenshots
 
-<img width="1918" height="897" alt="image" src="https://github.com/user-attachments/assets/b59c72a0-2717-4c30-b9bb-29dcebd8f1dd" />
+<img width="964" height="457" alt="image" src="https://github.com/user-attachments/assets/bdb64a5c-4c04-456b-8d66-0fbee88c1fcc" />
 
-<img width="1886" height="896" alt="image" src="https://github.com/user-attachments/assets/19c949a7-dedb-4141-b05c-a0a73b19f433" />
+<img width="889" height="427" alt="image" src="https://github.com/user-attachments/assets/b0b75880-4db6-44d9-a7c8-2f13997484d8" />
 
-<img width="1892" height="885" alt="image" src="https://github.com/user-attachments/assets/865f3f3c-317b-467a-887c-bed00ca274cc" />
+<img width="960" height="457" alt="image" src="https://github.com/user-attachments/assets/72931490-2d16-41f2-8b41-c161c4dfa2d0" />
 
-<img width="1883" height="887" alt="image" src="https://github.com/user-attachments/assets/09d7e601-b5c6-417e-816b-218f5063a488" />
+<img width="547" height="693" alt="image" src="https://github.com/user-attachments/assets/d8b571ff-8d58-4892-aa6f-6419f4a604b7" />
 
 
 ## Afterword
-If you have any problems with the project, suggestions, wishes, etc., then write to me on Discord (`boblikut`). I can also create custom command packs specifically for your server, but if you really like the project, I would first use it in its vanilla version to understand if you really need it and if there are any critical bugs in the project.
+If you have any problems with the project, suggestions, wishes, etc., then write to me on Discord (`boblikut`). If you will use this system you can write and I will add you to `Servers Already Using GSC-Panel`
 
-Just so you know, I'm all for using the project and you can use it absolutely freely and without mentioning authorship (but also without claiming it as your own). Also, if you use this system on your project, you can write to me on Discord, and I will add your server to the `Servers Already Using GSC-Panel` tab.
+## Plugins
+Plugins are avalible by this link: https://github.com/boblikut/GSC-Panel-plugins
+If you will make smth plugin for any addon you can add it to plugins repo thx Pull Request
+To dowload plugin just transfer lua file to `gsc/plugins` folder
 
 ## Acknowledgments
 
