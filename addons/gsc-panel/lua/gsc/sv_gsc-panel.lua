@@ -1,6 +1,6 @@
 require("gwsockets")
 
-local ws_addres = "ws://localhost:8080"
+local ws_addres = "ws://localhost:80/ws"
 
 local socket = GWSockets.createWebSocket(ws_addres)
 
