@@ -1,4 +1,7 @@
 # GSC - Panel
+
+### Project designed by [Vantuzz](https://steamcommunity.com/id/vantuzz_nya/)
+
 ## Intro
 This is an administration panel for Garry's Mod servers. Your administrators will be able to perform their duties, even without the ability to log into the Garry's Mod server, via a convenient web interface.
 
