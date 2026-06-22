@@ -27,7 +27,7 @@ Also you can make that admins could check custom info about players. To do it ch
 1. Launch `Docker`
 2. Download docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
 3. Transfer folder `gsc` from `addons` to your `addons` folder on your gmod server
-4. Open `gsc/sv_gsc-panel.lua` and change `ws://localhost:8080/ws` on actual websocket adress(`ws://[DOMEN or IP]:[PORT]/ws` (80 port - default))
+4. Open `gsc/sv_gsc-panel.lua` and change `ws://localhost:80/ws` on actual websocket adress(`ws://[DOMEN or IP]:[PORT]/ws` (80 port - default))
 5. Download [GWSockets](https://github.com/FredyH/GWSockets) and put .dll from realeses that you need to `lua/bin`
 
 ## Launch
