@@ -27,15 +27,15 @@ Also you can make that admins could check custom info about players. To do it ch
 1. Launch `Docker`
 2. Download docker image by typing this command: `docker pull ghcr.io/boblikut/gsc-panel:latest`
 3. Transfer folder `gsc` from `addons` to your `addons` folder on your gmod server
-4. Open `gsc/sv_gsc-panel.lua` and change `ws://localhost:8080` on actual websocket adress(`ws://[DOMEN or IP]:[PORT](8080 by default)`)
+4. Open `gsc/sv_gsc-panel.lua` and change `ws://localhost:8080/ws` on actual websocket adress(`ws://[DOMEN or IP]:[PORT]/ws` (80 port - default))
 5. Download [GWSockets](https://github.com/FredyH/GWSockets) and put .dll from realeses that you need to `lua/bin`
-6. Generate a token at Admin -> Token and put it at `data/gsc/gsc-token.txt` of your gmod server.
 
 ## Launch
-1. Create and launch docker container thx this command: `docker run --name gsc-panel -d --restart always -p 8080:8080 -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`
+1. Create and launch docker container thx this command: `docker run --name gsc-panel -d --restart always -p 80:80 -v gsc-db-volume:/var/www/html/db ghcr.io/boblikut/gsc-panel:latest`. If port 80 is not avalible - change it. For example on 67. Example: -p 67:80
 2. To restart container type: `docker restart gsc-panel`
 3. To stop created container: `docker stop gsc-panel`
 4. To start created container: `docker start gsc-panel`
+5. Generate a token at Admin -> Token and put it at `data/gsc/gsc-token.txt` of your gmod server (need after first launching)
 
 *In linux write `sudo` before `docker`*
 
