@@ -22,6 +22,8 @@ To edit roles and create new ones, go to the Roles tab and do it. Also you can c
 
 Also you can make that admins could check custom info about players. To do it check `gsc/plugins/info_example.lua` with examples.
 
+Keep in mind that all lua scripts don't work when server in hibernation. But at almost situations you needn't to use panel when on server no players. But if you need it to change smth global settings and etc add to server.cfg this: `sv_hibernate_think 1`
+
 ## Installation
 0. Download `Docker`
 1. Launch `Docker`
